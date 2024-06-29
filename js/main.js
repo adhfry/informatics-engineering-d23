@@ -20,11 +20,11 @@
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $('.navbar').addClass('sticky-top shadow-sm')
-            $('#inf').removeClass('text-white').addClass('text-primary')
-            $('#part').removeClass('text-white').addClass('text-primary')
+            $('#inf').removeClass('text-dark').addClass('text-primary')
+            $('#part').removeClass('text-dark').addClass('text-primary')
         } else {
-            $('#inf').addClass('text-white').removeClass('text-primary')
-            $('#part').addClass('text-white').removeClass('text-primary')
+            $('#inf').addClass('text-dark').removeClass('text-primary')
+            $('#part').addClass('text-dark').removeClass('text-primary')
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
     });
