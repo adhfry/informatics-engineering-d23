@@ -108,6 +108,51 @@
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
+
+    $(document).ready(function() {
+    $.getJSON('assets/data/data.json', function(data){
+        var content = '';
+        var delay = 0.0;
+        $.each(data, function(key, value){
+            content += `
+            <div
+                class="col-lg-4 col-md-6 portfolio-item boy wow zoomIn"
+                data-wow-delay="${delay}s"
+              >
+                <div class="position-relative rounded overflow-hidden">
+                  <img
+                    class="w-100 object-fit-cover"
+                    src="${value.profilePicture}"
+                    height="400"
+                    alt=""
+                  />
+                  <div class="portfolio-overlay">
+                    <a
+                      class="btn btn-light"
+                      href="${value.profilePicture}"
+                      data-lightbox="portfolio"
+                      ><i class="fa fa-plus fa-2x text-primary"></i
+                    ></a>
+                    <div class="mt-auto">
+                      <small class="text-white"
+                        ><i class="fa fa-folder me-2"></i>${value.softskill}</small
+                      >
+                      <a
+                        class="h5 d-block text-white mt-1 mb-0"
+                        href="https://instagram.com/${value.instagramUsername? value.instagramUsername : ""}"
+                        >${value.namaLengkap}</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `
+            delay += 0.3;
+        })
+        $('#galleryContainer').html(content)
+    })
+});
+
     
 })(jQuery);
 
